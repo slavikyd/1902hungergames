@@ -1,7 +1,7 @@
 """Tests but it is client in disguise."""
 import os
 import socket
-
+import correct
 EXIT_MSG = os.environ.get('EXIT_MSG', default='q')
 HOST = os.environ.get('HOST', default='127.0.0.1')
 PORT = int(os.environ.get('PORT', default=8000))
@@ -29,5 +29,20 @@ while True:
 
     msg = client.recv(1024).decode()
     print(f'Server response msg: {msg}')
+    if city == 'Sirius' and msg == correct.FIRST:
+        print('Correct data recieved')
+    else:
+        print('WA')
+        break
 
+    if city == 'Makhachkala' and msg == correct.THIRD:
+        print('Correct data recieved')
+    else:
+        print('WA')
+        break
+    if city == 'Python' and msg == correct.SECOND:
+        print('Correct data recieved')
+    else:
+        print('WA')
+        break
 client.close()

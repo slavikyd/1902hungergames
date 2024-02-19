@@ -31,6 +31,8 @@ def get_weather_by_city(coordinates: tuple[float]) -> dict:
         weather = json.loads(response.content)
         forecast = weather
         forecast.pop('now')
+        forecast.pop('info')
+        forecast.pop('fact')
         forecast['date'] = forecast.pop('now_dt')
 
         return forecast
