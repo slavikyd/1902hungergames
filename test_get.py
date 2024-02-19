@@ -1,7 +1,9 @@
 """Tests but it is client in disguise."""
 import os
 import socket
+
 import correct
+
 EXIT_MSG = os.environ.get('EXIT_MSG', default='q')
 HOST = os.environ.get('HOST', default='127.0.0.1')
 PORT = int(os.environ.get('PORT', default=8000))
